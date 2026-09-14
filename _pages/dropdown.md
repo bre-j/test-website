@@ -1,13 +1,5 @@
 ---
-layout: page
-title: submenus
-nav: true
-nav_order: 8
-dropdown: true
-children:
-  - title: bookshelf
-    permalink: /books/
-  - title: divider
-  - title: blog
-    permalink: /blog/
+# Disabled: al-folio demo page, not part of the Vidaurre Lab site.
+# Delete this file (see bin/cleanup-demo-content.sh) or set published: true to bring it back.
+published: false
 ---

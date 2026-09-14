@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2025-10-01 09:00:00+0200
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+_Large-scale cortical functional networks are organized in structured cycles_ appears in **Nature Neuroscience**, with Mats van Es and the OHBA group.

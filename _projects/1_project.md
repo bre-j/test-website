@@ -1,81 +1,35 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: modelling brain dynamics
+description: Time-varying models of neural activity — hidden Markov models and their generalisations.
+img: assets/img/research_dynamics.png
 importance: 1
-category: work
+category: methods
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Standard functional connectivity collapses a whole recording into one matrix. That is a strong assumption:
+it says the relationships between brain areas hold still for the duration of the scan. They do not.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Our core methodological programme is a family of **time-varying models** that describe a recording as a
+sequence of recurring states, each with its own distribution over the data. Fitting such a model gives two
+things at once: a small set of network patterns that the brain revisits, and a moment-by-moment estimate of
+which pattern is active. The approach works on fMRI, where states last seconds, and on M/EEG and invasive
+electrophysiology, where they last tens to hundreds of milliseconds.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+Lines of work here include:
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+- **The Gaussian-Linear HMM.** A generalisation that unifies several model variants — state-wise means,
+  covariances, and regression relationships between two sets of variables — under one estimation framework,
+  released as the [glhmm Python package]({{ '/software/' | relative_url }}).
+- **Spectral and hierarchical structure.** States defined by frequency-specific phase coupling, and the
+  observation that transitions between states are themselves organised — hierarchically in time, and, more
+  recently, into structured cycles.
+- **Dimensionality reduction inside the model.** Estimating a low-dimensional representation and the
+  time-varying connectivity jointly, rather than as two separate steps.
+- **Decoding that respects temporal variability.** Standard decoders assume a response is time-locked across
+  trials. ADA relaxes that, allowing the timing of the response to vary.
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+The practical question running through all of it is **how much dynamics the data can actually support**.
+Time-varying estimates are noisy, and a model that is too flexible will happily describe noise; much of our
+methods work is about where that line sits.

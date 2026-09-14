@@ -1,0 +1,74 @@
+# Group members.
+#
+# Each entry: name, role, site (crm | aarhus | oxford), and optionally email, url, interests.
+# `initials` is used for the avatar; if omitted it is derived from the name.
+# To add a photo instead, drop the image in assets/img/people/ and set `image: people/filename.jpg`.
+
+pi:
+  - name: Diego Vidaurre
+    role: Principal Investigator
+    site: crm
+    title: PI at CRM (ATRAE programme) · Adjunct Professor, CFIN, Aarhus University
+    email: dvidaurre@crm.cat
+    url: https://scholar.google.com/citations?user=krbBtukAAAAJ
+    interests: Brain dynamics, hidden Markov models, machine learning for neuroimaging, statistics
+
+barcelona:
+  - name: Tomás D'Amelio
+    role: PhD Student
+    site: crm
+  - name: Federico Poncio
+    role: PhD Student
+    site: crm
+  - name: Nicolás Rozenberg
+    role: PhD Student
+    site: crm
+
+aarhus:
+  - name: Nick Yao Larsen
+    role: Postdoctoral Researcher
+    site: aarhus
+    email: nylarsen@cfin.au.dk
+    interests: Statistical testing frameworks for brain dynamics
+  - name: Cecilia Gisele Jarne
+    role: Postdoctoral Researcher
+    site: aarhus
+    interests: Recurrent network models, brain network resilience
+  - name: Janus Rønn Lind Kobbersmed
+    role: PhD Student
+    site: aarhus
+    interests: Normative modelling of brain function in complex pathology
+  - name: Pablo Felipe Oyarzo Uribe
+    role: Research Assistant
+    site: aarhus
+    email: pablo@cfin.au.dk
+    interests: Decoding temporally variable brain responses
+  - name: Ben Griffin
+    role: PhD Student (with Oxford)
+    site: oxford
+    email: ben.griffin@keble.ox.ac.uk
+    interests: Brain structure, cognition and ageing
+
+# Frequent co-authors the group works with closely. Listed on the basis of recent joint publications,
+# not as members of the group.
+collaborators:
+  - name: Mark W. Woolrich
+    affiliation: OHBA, University of Oxford
+  - name: Christine Ahrends
+    affiliation: University of Oxford
+  - name: Chetan Gohil
+    affiliation: OHBA, University of Oxford
+  - name: Anderson M. Winkler
+    affiliation: University of Texas Rio Grande Valley
+  - name: Stephen M. Smith
+    affiliation: FMRIB, University of Oxford
+  - name: Morten L. Kringelbach
+    affiliation: University of Oxford / Aarhus University
+  - name: Peter Vuust
+    affiliation: Center for Music in the Brain, Aarhus University
+  - name: Gustavo Deco
+    affiliation: Universitat Pompeu Fabra, Barcelona
+  - name: Esther Florin
+    affiliation: Heinrich Heine University Düsseldorf
+  - name: Jeroen Van Schependom
+    affiliation: Vrije Universiteit Brussel

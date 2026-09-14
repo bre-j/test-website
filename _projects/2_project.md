@@ -1,81 +1,32 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: statistics and prediction
+description: Testing hypotheses about brain dynamics, and predicting individual traits from them.
+img: assets/img/research_statistics.png
 importance: 2
-category: work
-giscus_comments: true
+category: methods
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Fitting a model is the easy half. The harder half is saying, with a defensible error rate, what it means —
+and doing so when the estimates are unstable, the observations within a subject are not exchangeable, and the
+family of hypotheses is large.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**Inference.** Within-subject functional connectivity estimates are noisy, yet between-subject conclusions are
+often drawn directly from them. We have worked on when that is and is not valid, and on permutation schemes
+that respect the structure of the data — multi-level block permutation for family-structured cohorts such as
+the Human Connectome Project, and, more recently, a general permutation-based framework for testing
+hypotheses about brain dynamics that covers across-subject, across-trial and across-time designs.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+**Prediction.** A model fitted to one person's data is a rich object, but it lives in a curved parameter
+space, so feeding its parameters into a linear predictor is the wrong move. The **Fisher kernel** takes the
+geometry seriously: it compares two subjects by how the model would have to change to account for each of
+them. In practice this predicts individual traits more accurately — and, importantly, more _reliably_ — than
+the alternatives, which matters if predictions are ever to be used at the level of a single person.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+**Normative modelling.** Where pathology is diffuse rather than focal, comparing a patient against a
+normative range one region at a time discards the thing that is actually abnormal. We argue for and develop
+whole-brain normative approaches to brain function.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+Methods from this line are implemented in [glhmm]({{ '/software/' | relative_url }}) and in the accompanying
+statistical testing module.
